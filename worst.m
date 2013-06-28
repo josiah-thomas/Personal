@@ -1,18 +1,17 @@
 %%	For this program, I have assumed that inputs is a cell array, 
 %%	containing lots of data that isn't necessarily needed for this algorithm
-clear all
+clear
 clc
 
-inputs = struct('value', [1:100], 'parameterValues', [1,2,2,5], 'Grocery_list', {'milk', 'bread', 'oranges', 'eggs'});
+inputs = struct('value', [1:10], 'parameterValues', [1,2,2,1], 'Grocery_list', {'milk', 'bread', 'oranges', 'eggs'});
 
 Parameters = [1,5,3,4];
 
 for i = numel(inputs)
 	% Extract the values
 	ciInput = inputs.value;
-	% ciValue = ciInput.value;
-	ciLimits = inputs.parameterValues; % There better be four of them
-	newHiValue = 1; result = 1;	%initializes variables
+	ciLimits = inputs.parameterValues; % needs to be four of them
+	newHiValue = 1; result = 5;	%initializes variables
 	% Go through each limit
 	
 	for l = 4:-1:1 % 3:-1:0 in Java
@@ -33,8 +32,6 @@ for i = numel(inputs)
 			prevLimit = ciLimits(l);
 		end
 	end
-	
-	
 	% Check if the new HI value is bigger than the old one
 	% if newHiValue > result
 		% % If it is, replace the old one with the new one
